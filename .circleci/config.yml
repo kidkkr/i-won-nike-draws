@@ -35,9 +35,12 @@ version: 2.1
 workflows:
   deploy:
     jobs:
+      - build
       - python/test:
-          pkg-manager: pipenv
+          pkg-manager: pip
           test-tool: pytest
+          requires:
+            - build
       - deploy:
           requires:
             - python/test
