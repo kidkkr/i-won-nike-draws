@@ -8,8 +8,13 @@ def extract_data(page_source):
     results = []
 
     for item in items:
+
+        subject = item.select_one("p.txt-subject")
+        if subject is None or "응모" not in subject.text:
+            continue
+
         try:
-            link = item.select_one("a.comingsoon")["href"]
+            link = item.select_one("a")["href"]
             title = item.select_one("p.txt-description").text
             date = item["data-active-date"]
             result = {
