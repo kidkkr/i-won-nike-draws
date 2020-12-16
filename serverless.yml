@@ -11,5 +11,5 @@ functions:
   crawl:
     handler: handler.crawl
     events:
-      - schedule: cron(0 0 * * 4 *) # Every Thursday 00:00
+      - schedule: cron(0 8 * * ? *)
 

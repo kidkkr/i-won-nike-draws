@@ -1,0 +1,38 @@
+jobs:
+  test:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pip-dependency-file: requirements.txt
+          pkg-manager: pip
+      - python/install-packages:
+          args: pytest
+          pkg-manager: pip
+          pypi-cache: false
+      - run:
+          command: pytest
+          name: Test
+  deploy:
+    executor: serverless/default
+    steps:
+      - checkout
+      - aws-cli/setup
+      - serverless/setup:
+          app-name: serverless-framework-orb
+          org-name: circleci
+      - run:
+          command: serverless deploy -v
+          name: deploy
+orbs:
+  aws-cli: circleci/aws-cli@1.3.1
+  python: circleci/python@1.3.2
+  serverless: circleci/serverless-framework@1.0
+version: 2.1
+workflows:
+  deploy:
+    jobs:
+      - test
+      - deploy:
+          requires:
+            - test
