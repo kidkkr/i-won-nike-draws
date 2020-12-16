@@ -1,6 +1,7 @@
 from os import environ
-import request
+import requests
 import crawler
+import json
 
 result = lambda message, event: { "message": message, "event": event }
 
@@ -11,7 +12,7 @@ def crawl(event, context):
         return result("skipped", event)
 
     try:
-        request.post(environ['WEBHOOK_URL'], data=data)
+        requests.post(environ['WEBHOOK_URL'], data=json.dumps(data))
     except:
         return result("failed", event)
 
