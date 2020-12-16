@@ -1,10 +1,8 @@
 jobs:
-  build:
+  test:
     executor: python/default
     steps:
       - checkout
-      - python/install-packages:
-          pkg-manager: pip
       - python/install-packages:
           pip-dependency-file: requirements.txt
           pkg-manager: pip
@@ -13,8 +11,7 @@ jobs:
           pkg-manager: pip
           pypi-cache: false
       - run:
-          command: |
-            pytest --version
+          command: pytest
           name: Test
   deploy:
     executor: serverless/default
@@ -35,12 +32,7 @@ version: 2.1
 workflows:
   deploy:
     jobs:
-      - build
-      - python/test:
-          pkg-manager: pip
-          test-tool: pytest
-          requires:
-            - build
+      - test
       - deploy:
           requires:
-            - python/test
+            - test
