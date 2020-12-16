@@ -9,16 +9,17 @@ def extract_data(page_source):
 
     for item in items:
         try:
-            link = item.select_one("a")
-            title = item.select_one("p.txt-description")
+            link = item.select_one("a.comingsoon")["href"]
+            title = item.select_one("p.txt-description").text
+            date = item["data-active-date"]
             result = {
-                "link": link["href"],
+                "title": title,
                 "date": item["data-active-date"],
-                "title": title.text
+                "link": link
             }
             results.append(result)
         except:
-            break
+            continue
 
     return results
 
