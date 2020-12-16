@@ -4,8 +4,15 @@ frameworkVersion: "2"
 
 provider:
   name: aws
-  runtime: python2.7
+  runtime: python3.7
   region: ap-northeast-2
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
 
 functions:
   crawl:
