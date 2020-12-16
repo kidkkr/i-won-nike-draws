@@ -12,7 +12,7 @@ jobs:
           pypi-cache: false
       - run:
           command: pytest
-          name: Test
+          name: test
   deploy:
     executor: serverless/default
     steps:
@@ -21,6 +21,9 @@ jobs:
       - serverless/setup:
           app-name: serverless-framework-orb
           org-name: circleci
+      - run:
+          command: serverless plugin install -n serverless-python-requirements
+          name: install serverless-python-requirements
       - run:
           command: serverless deploy -v
           name: deploy
