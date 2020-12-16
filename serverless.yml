@@ -4,12 +4,11 @@ frameworkVersion: "2"
 
 provider:
   name: aws
-  runtime: python3.8
+  runtime: python3.6
   region: ap-northeast-2
 
 plugins:
   - serverless-python-requirements
-
 custom:
   pythonRequirements:
     dockerizePip: non-linux
@@ -19,4 +18,7 @@ functions:
     handler: handler.crawl
     events:
       - schedule: cron(0 8 * * ? *)
+    environment:
+      WEBHOOK_URL: ${opt:webhookUrl}
+      
 
