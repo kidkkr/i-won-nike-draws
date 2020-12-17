@@ -17,7 +17,7 @@ functions:
   crawl:
     handler: handler.crawl
     events:
-      - schedule: cron(0 8 * * ? *)
+      - schedule: cron(30 0 * * ? *)
     environment:
       WEBHOOK_URL: ${opt:webhookUrl}
       

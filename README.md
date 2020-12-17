@@ -4,7 +4,7 @@ Crawl NIKE draw events from [nike.com/kr](https://nike.com/kr).
 
 # 한국 나이키 드로우 소식 받아보기
 
-이 크롤러는 매일 아침 8시마다 나이키 닷컴에 접속해 드로우 소식을 확인합니다.
+이 크롤러는 매일 아침 9시마다 나이키 닷컴에 접속해 드로우 소식을 확인합니다.
 
 Zapier로 Google Calendar 이벤트를 생성해 운영중입니다.
 
