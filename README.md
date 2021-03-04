@@ -1,8 +1,10 @@
-# [I Won Nike Draws](https://calendar.google.com/calendar/embed?src=h9d5ib14qn3nc04v8ggc4ebi8k%40group.calendar.google.com&ctz=Asia%2FSeoul) &middot; [![kidkdkr](https://circleci.com/gh/kidkkr/i-won-nike-draws.svg?style=svg)](https://circleci.com/gh/kidkkr/i-won-nike-draws)
+### [I Won Nike Draws](https://calendar.google.com/calendar/embed?src=h9d5ib14qn3nc04v8ggc4ebi8k%40group.calendar.google.com&ctz=Asia%2FSeoul) &middot; [![kidkdkr](https://circleci.com/gh/kidkkr/i-won-nike-draws.svg?style=svg)](https://circleci.com/gh/kidkkr/i-won-nike-draws)
 
 Crawl NIKE draw events from [nike.com/kr](https://nike.com/kr).
 
-# 한국 나이키 드로우 소식 받아보기
+# 재피어가 너무 비싸서 운영 중단
+
+### 한국 나이키 드로우 소식 받아보기
 
 이 크롤러는 매일 아침 9시마다 나이키 닷컴에 접속해 드로우 소식을 확인합니다.
 
